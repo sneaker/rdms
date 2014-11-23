@@ -2,7 +2,7 @@ require 'test_helper'
 
 class DocumentsControllerTest < ActionController::TestCase
   setup do
-    @document = documents(:one)
+    @document = documents(:rechnung)
     @update = {
       name: 'Test',
       description: 'This is a test',
