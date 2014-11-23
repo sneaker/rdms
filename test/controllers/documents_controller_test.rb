@@ -3,6 +3,13 @@ require 'test_helper'
 class DocumentsControllerTest < ActionController::TestCase
   setup do
     @document = documents(:one)
+    @update = {
+      name: 'Test',
+      description: 'This is a test',
+      filename: 'test.pdf',
+      filetype: 'pdf',
+      filesize: 0
+    }
   end
 
   test "should get index" do
@@ -18,7 +25,7 @@ class DocumentsControllerTest < ActionController::TestCase
 
   test "should create document" do
     assert_difference('Document.count') do
-      post :create, document: { created_at: @document.created_at, description: @document.description, filename: @document.filename, name: @document.name, owner: @document.owner, filesize: @document.filesize, filetype: @document.filetype }
+      post :create, document: @update
     end
 
     assert_redirected_to document_path(assigns(:document))
@@ -35,7 +42,7 @@ class DocumentsControllerTest < ActionController::TestCase
   end
 
   test "should update document" do
-    patch :update, id: @document, document: { created_at: @document.created_at, description: @document.description, filename: @document.filename, name: @document.name, owner: @document.owner, filesize: @document.filesize, filetype: @document.filetype }
+    patch :update, id: @document, document: @update
     assert_redirected_to document_path(assigns(:document))
   end
 
