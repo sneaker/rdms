@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Document.delete_all
+
+Document.create([{ name: 'doc1', description: 'A first test document', filename: 'testfilename.txt', filesize: 12, created_at: '2014-11-23 11:43:00 UTC', owner: 1}])
+Document.create([{ name: 'doc2', description: 'A second test document', filename: 'testfilename2.txt', filesize: 13, created_at: '2014-11-23 11:11:00 UTC', owner: 1}])
+Document.create([{ name: 'doc3', description: 'A third test document', filename: 'testfilename3.txt', filesize: 14, created_at: '2014-11-23 11:34:00 UTC', owner: 1}])

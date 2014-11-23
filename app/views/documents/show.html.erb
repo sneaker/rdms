@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @document.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @document.description %>
+</p>
+
+<p>
+  <strong>Filename:</strong>
+  <%= @document.filename %>
+</p>
+
+<p>
+  <strong>Filetype:</strong>
+  <%= @document.filetype %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @document.filesize %>
+</p>
+
+<p>
+  <strong>Created at:</strong>
+  <%= @document.created_at %>
+</p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= @document.owner %>
+</p>
+
+<%= link_to 'Edit', edit_document_path(@document) %> |
+<%= link_to 'Back', documents_path %>
