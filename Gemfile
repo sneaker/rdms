@@ -42,6 +42,7 @@ gem 'spring',        group: :development
 gem 'overcommit'
 gem 'reek'
 gem 'rubocop'
-gem 'image_optim'
 
 gem 'pdfjs_rails'
+
+gem 'paperclip', '~> 4.2'
