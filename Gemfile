@@ -41,3 +41,5 @@ gem 'spring',        group: :development
 gem 'overcommit'
 gem 'reek'
 gem 'rubocop'
+
+gem 'pdfjs_rails'
