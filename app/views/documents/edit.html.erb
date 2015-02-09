@@ -4,4 +4,6 @@
 
 
 <%= link_to 'Show', @document %> |
-<%= link_to 'Back', documents_path %>
+<%= link_to 'Back', documents_path %> |
+<%= link_to 'Destroy', @document, method: :delete, data: { confirm: "Are you sure?" } %>
+

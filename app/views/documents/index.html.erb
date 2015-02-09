@@ -1,36 +1,41 @@
-<h1>Listing documents</h1>
+<div class="page-header">
+  <h1>Listing documents</h1>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Filename</th>
-      <th>filetype</th>
-      <th>filesize</th>
-      <th>Created at</th>
-      <th>Owner</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @documents.each do |document| %>
-      <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
-        <td><%= document.name %></td>
-        <td><%= document.description %></td>
-        <td><%= document.filename %></td>
-        <td><%= document.filetype %></td>
-        <td><%= document.filesize %></td>
-        <td><%= document.created_at %></td>
-        <td><%= document.owner %></td>
-        <td><%= link_to 'Show', document %></td>
-        <td><%= link_to 'Edit', edit_document_path(document) %></td>
-        <td><%= link_to 'Destroy', document, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<div class="row">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Filename</th>
+        <th>filetype</th>
+        <th>filesize</th>
+        <th>Created at</th>
+        <th>Owner</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @documents.each do |document| %>
+        <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+          <td><%= document.name %></td>
+          <td><%= document.description %></td>
+          <td><%= document.filename %></td>
+          <td><%= document.filetype %></td>
+          <td><%= document.file_file_size %></td>
+          <td><%= document.created_at %></td>
+          <td><%= document.owner %></td>
+          <td><%= link_to 'Show', document %></td>
+          <td><%= link_to 'Edit', edit_document_path(document) %></td>
+          <td><%= link_to 'Destroy', document, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
 
 <br>
 

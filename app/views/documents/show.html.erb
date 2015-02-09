@@ -1,43 +1,50 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @document.name %>
-</p>
+<div class="page-header">
+  <h2>Document details <%= @document.name %> </h2>
+    <%= link_to 'Back', documents_path %> |
+  <%= link_to 'Edit', edit_document_path(@document) %> 
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @document.description %>
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <strong>Name:</strong>
+          <%= @document.name %>
+        </li>
+        <li class="list-group-item">
+          <strong>Description:</strong>
+          <%= @document.description %>
+        </li>
+        <li class="list-group-item">
+          <strong>Filename:</strong>
+          <%= @document.filename %>
+        </li>
+        <li class="list-group-item">
+          <strong>Filetype:</strong>
+          <%= @document.filetype %>
+        </li>
+        <li class="list-group-item">
+          <strong>Size:</strong>
+          <%= @document.file_file_size %>
+        </li>
+        <li class="list-group-item">
+          <strong>Created at:</strong>
+          <%= @document.created_at %>
+        </li>
+        <li class="list-group-item">
+          <strong>Owner:</strong>
+          <%= @document.owner %>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <p>
+      <iframe src="/pdfjs/web/viewer.html?file=<%= @document.file.url %>" style="border: 1" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+      </p>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Filename:</strong>
-  <%= @document.filename %>
-</p>
-
-<p>
-  <strong>Filetype:</strong>
-  <%= @document.filetype %>
-</p>
-
-<p>
-  <strong>Size:</strong>
-  <%= @document.filesize %>
-</p>
-
-<p>
-  <strong>Created at:</strong>
-  <%= @document.created_at %>
-</p>
-
-<p>
-  <strong>Owner:</strong>
-  <%= @document.owner %>
-</p>
-
-<p>
-<iframe src="/pdfjs/web/viewer.html?file=<%= @document.file.url %>" style="border: 0" width="50%" height="600" frameborder="0" scrolling="no"></iframe>
-</p>
-
-<%= link_to 'Edit', edit_document_path(@document) %> |
-<%= link_to 'Back', documents_path %>
