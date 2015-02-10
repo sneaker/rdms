@@ -3,7 +3,7 @@
 <div class="page-header">
   <h2>Document details <%= @document.name %> </h2>
     <%= link_to 'Back', documents_path %> |
-  <%= link_to 'Edit', edit_document_path(@document) %> 
+    <%= link_to 'Edit', edit_document_path(@document) %> |
 </div>
 
 <div class="container">
@@ -20,15 +20,15 @@
         </li>
         <li class="list-group-item">
           <strong>Filename:</strong>
-          <%= @document.filename %>
+          <%= @document.file_file_name %>
         </li>
         <li class="list-group-item">
           <strong>Filetype:</strong>
-          <%= @document.filetype %>
+          <%= @document.file_content_type%>
         </li>
         <li class="list-group-item">
           <strong>Size:</strong>
-          <%= @document.file_file_size %>
+          <%= @document.file_file_size %> bytes
         </li>
         <li class="list-group-item">
           <strong>Created at:</strong>
@@ -37,6 +37,11 @@
         <li class="list-group-item">
           <strong>Owner:</strong>
           <%= @document.owner %>
+        </li>
+        <li class="list-group-item">
+          <strong>Actions:</strong>
+          <%= link_to "Download", @document.file.url(:original, false) %> |
+          <%= link_to 'Fullscreen', :controller => :documents, :action => :fullview, :id => @document.id %>
         </li>
       </ul>
     </div>
