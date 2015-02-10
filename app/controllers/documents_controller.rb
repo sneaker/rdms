@@ -1,5 +1,6 @@
 class DocumentsController < ApplicationController
-  before_action :set_document, only: [:show, :edit, :update, :destroy]
+  before_action :set_document, only:
+    [:show, :edit, :update, :destroy, :fullview]
 
   # GET /documents
   # GET /documents.json
@@ -19,6 +20,10 @@ class DocumentsController < ApplicationController
 
   # GET /documents/1/edit
   def edit
+  end
+
+  # GET /documents/1/fullview
+  def fullview
   end
 
   # POST /documents
@@ -62,6 +67,7 @@ class DocumentsController < ApplicationController
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_document
       @document = Document.find(params[:id])
