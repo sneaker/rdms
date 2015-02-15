@@ -17,12 +17,21 @@
 
 PreCommit:
   Rubocop:
-    enable: true
-#    on_warn: fail # Treat all warnings as failures
+    on_fail: pass
+
+  CoffeeLint:
+    enabled: false
+
+    on_warn: pass # Treat all warnings as failures
 
   TrailingWhitespace:
     exclude:
       - '**/db/structure.sql' # Ignore trailing whitespace in generated files
+
+  Reek:
+    enabled: true
+    on_fail: pass
+
 PostCheckout:
   ALL: # Special hook name that customizes all hooks of this type
    quiet: true # Change all post-checkout hooks to only display output on failure
