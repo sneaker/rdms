@@ -1,23 +1,30 @@
-<div>
+<div class="container">
   <% if flash[:alert] %>
-    <p id="notice"><%= flash[:alert] %></p>
+    <div class="alert alert-danger" role="alert">
+      <span class="sr-only">Error:</span>
+      <%= flash[:alert] %>
+    </div>
   <% end %>
   <% if flash[:notice] %>
-    <p id="notice"><%= flash[:notice] %></p>
+    <div class="alert alert-warning" role="alert">
+      <span class="sr-only">Warning:</span>
+      <%= flash[:notice] %>
+    </div>
   <% end %>
-  <%= form_tag do %>
+  <%= form_tag({:class => 'form-signin' }) do %>
     <fieldset>
-      <legend>Please log in</legend>
+      <h2 class="form-signin-heading">Please sign in</h2>
       <div>
-        <%= label_tag :name, "Name: " %>
-        <%= text_field_tag :name, params[:name] %>
+        <%= label_tag :name, "Name: ", class: 'sr-only' %>
+        <%= text_field_tag :name, params[:name], placeholder: 'username', class: 'form-control' %>
       </div>
       <div>
-        <%= label_tag :passowrd, 'Password:' %>
-        <%= password_field_tag :password, params[:password] %>
+        <%= label_tag :passowrd, 'Password: ', class: 'sr-only' %>
+        <%= password_field_tag :password, params[:password], placeholder: 'password', class: 'form-control'%>
       </div>
+      <hr>
       <div>
-        <%= submit_tag "Login" %>
+        <%= submit_tag "Login", :class => 'btn btn-lg btn-primary btn-block' %>
       </div>
     </fieldset>
   <% end %>

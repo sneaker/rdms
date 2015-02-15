@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   controller :session do
     get 'login' => :new
     post 'login' => :create
-    delete 'logout' => :destory
+    delete 'logout' => :destroy
   end
 
 #  get 'session/new'
