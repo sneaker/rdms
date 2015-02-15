@@ -1,6 +1,19 @@
 Rails.application.routes.draw do
-  resources :users
+  get 'admin' => 'admin#index'
 
+  controller :session do
+    get 'login' => :new
+    post 'login' => :create
+    delete 'logout' => :destory
+  end
+
+#  get 'session/new'
+
+  get 'session/create'
+
+  get 'session/destroy'
+
+  resources :users
   resources :documents
 
   # The priority is based upon order of creation: first created -> highest priority.
