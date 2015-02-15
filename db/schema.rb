@@ -11,21 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141130184205) do
+ActiveRecord::Schema.define(version: 20150215105544) do
 
-  create_table 'documents', force: true do |t|
-    t.string   'name'
-    t.string   'description'
-    t.string   'filename'
-    t.string   'filetype'
-    t.integer  'filesize'
-    t.datetime 'created_at'
-    t.integer  'owner'
-    t.datetime 'updated_at'
-    t.string   'file_file_name'
-    t.string   'file_content_type'
-    t.integer  'file_file_size'
-    t.datetime 'file_updated_at'
+  create_table "documents", force: true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "filename"
+    t.string   "filetype"
+    t.integer  "filesize"
+    t.datetime "created_at"
+    t.integer  "owner"
+    t.datetime "updated_at"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "password_digest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
