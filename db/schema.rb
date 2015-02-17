@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150215105544) do
+ActiveRecord::Schema.define(version: 20150217210153) do
 
   create_table "documents", force: true do |t|
     t.string   "name"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20150215105544) do
     t.string   "filetype"
     t.integer  "filesize"
     t.datetime "created_at"
-    t.integer  "owner"
+    t.integer  "user_id"
     t.datetime "updated_at"
     t.string   "file_file_name"
     t.string   "file_content_type"

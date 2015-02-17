@@ -6,10 +6,9 @@ class DocumentsControllerTest < ActionController::TestCase
     @update = {
       name: 'Test',
       description: 'This is a test',
-      filename: 'test.pdf',
-      filetype: 'pdf',
-      filesize: 0
     }
+    dave = users(:one)
+    session[:user_id] = dave.id
   end
 
   test 'should get index' do
@@ -39,6 +38,12 @@ class DocumentsControllerTest < ActionController::TestCase
   test 'should get edit' do
     get :edit, id: @document
     assert_response :success
+  end
+
+  test 'should not get edit if wrong user' do
+    session[:user_id] = 2
+    get :edit, id: @document
+    assert_redirected_to documents_url
   end
 
   test 'should update document' do

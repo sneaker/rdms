@@ -1,11 +1,12 @@
 class DocumentsController < ApplicationController
+  before_action :set_user
   before_action :set_document, only:
     [:show, :edit, :update, :destroy, :fullview]
 
   # GET /documents
   # GET /documents.json
   def index
-    @documents = Document.all
+    @documents = @current_user.documents
   end
 
   # GET /documents/1
@@ -20,6 +21,7 @@ class DocumentsController < ApplicationController
 
   # GET /documents/1/edit
   def edit
+
   end
 
   # GET /documents/1/fullview
@@ -30,6 +32,7 @@ class DocumentsController < ApplicationController
   # POST /documents.json
   def create
     @document = Document.new(document_params)
+    @document.user_id = @current_user.id
 
     respond_to do |format|
       if @document.save
@@ -69,12 +72,21 @@ class DocumentsController < ApplicationController
   private
 
     # Use callbacks to share common setup or constraints between actions.
+    def set_user
+      @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    end
+
     def set_document
-      @document = Document.find(params[:id])
+      document = Document.find(params[:id])
+      if document.user_id == @current_user.id then
+        @document = document
+      else
+        redirect_to documents_url
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def document_params
-      params.require(:document).permit(:name, :description, :filename, :filetype, :filesize, :created_at, :owner, :file)
+      params.require(:document).permit(:name, :description, :filename, :filetype, :filesize, :created_at, :user_id, :file)
     end
 end

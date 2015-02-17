@@ -1,19 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 rechnung:
+  id: 1
   name: Rechnung Mebag retail
   description: Rrechung vom Januar mit der Rechnung von Mercedes
-  filename: mercedes_rechnung.pdf
-  filetype: pdf
-  filesize: 234
   created_at: 2014-11-23 12:24:23
-  owner: 1
+  user_id: 1
 
 letter:
+  id: 2
   name: Defence letter
   description: Letter from defence department
-  filename: defence.pdf
-  filetype: pdf
-  filesize: 1
   created_at: 2014-11-23 12:24:23
-  owner: 1
+  user_id: 2
