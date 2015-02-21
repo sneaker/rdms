@@ -52,3 +52,7 @@ gem 'autoprefixer-rails'
 
 gem 'scss-lint'
 gem 'kwalify'
+
+group :development do
+  gem 'simplecov'
+end
