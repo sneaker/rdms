@@ -1,6 +1,3 @@
-ENV['RAILS_ENV'] ||= 'test'
-require File.expand_path('../../config/environment', __FILE__)
-require 'rails/test_help'
 require 'simplecov'
 
 SimpleCov.start do
@@ -14,6 +11,10 @@ SimpleCov.start do
   add_group 'Mailers', 'app/mailers'
   add_group 'Views', 'app/views'
 end if ENV["COVERAGE"]
+
+ENV['RAILS_ENV'] ||= 'test'
+require File.expand_path('../../config/environment', __FILE__)
+require 'rails/test_help'
 
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
