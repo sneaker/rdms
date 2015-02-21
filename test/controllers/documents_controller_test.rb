@@ -58,4 +58,10 @@ class DocumentsControllerTest < ActionController::TestCase
 
     assert_redirected_to documents_path
   end
+
+  test 'authorize first' do
+    session[:user_id] = nil
+    get :show, id: @document
+    assert_redirected_to login_url
+  end
 end
