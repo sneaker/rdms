@@ -56,3 +56,10 @@ gem 'kwalify'
 group :development do
   gem 'simplecov'
 end
+
+group :test do
+  gem 'cucumber-rails'
+  gem 'rspec-rails'
+  gem 'database_cleaner'
+  gem "factory_girl_rails", "~> 4.0"
+end
