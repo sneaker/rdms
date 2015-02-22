@@ -47,9 +47,6 @@ gem 'pdfjs_rails'
 
 gem 'paperclip', '~> 4.2'
 
-gem 'bootstrap-sass', '~> 3.3.3'
-gem 'autoprefixer-rails'
-
 gem 'scss-lint'
 gem 'kwalify'
 
